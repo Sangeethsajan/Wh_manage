@@ -1,5 +1,5 @@
 from django import forms
-from .models import productDetails, productPath, productSuggestions
+from .models import productDetails, productPath, productSuggestions, Manufacturer, Category
 
 class productForm(forms.ModelForm):
     class Meta:
@@ -25,3 +25,13 @@ class OrderForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(OrderForm,self).__init__(*args, **kwargs)
         self.fields['productId'].empty_label ="Select"
+
+class ManufacturerForm(forms.ModelForm):
+    class Meta:
+        model = Manufacturer
+        fields ="__all__"
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields ="__all__"

@@ -20,7 +20,7 @@ class productDetails(models.Model):
     product_Name = models.CharField(max_length = 100)
     category_Id = models.ForeignKey(Category, on_delete= models.CASCADE)
     manufacturer_Id = models.ForeignKey(Manufacturer, on_delete= models.CASCADE)
-    rack_No = models.IntegerField()
+    rack_No = models.CharField(max_length = 100)
     price = models.IntegerField()
 
 class productPath(models.Model):
@@ -28,5 +28,6 @@ class productPath(models.Model):
 
 class productSuggestions(models.Model):
     productId = models.ForeignKey(productDetails, on_delete= models.CASCADE)
+    count = models.IntegerField()
 
 
